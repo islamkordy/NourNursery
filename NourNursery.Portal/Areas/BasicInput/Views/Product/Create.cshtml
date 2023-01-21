@@ -1,0 +1,158 @@
+﻿@model Models.ViewModel.BasicInput.ProductVm
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<script src="~/js/ckeditor/build-config.js"></script>
+<script src="~/js/ckeditor/styles.js"></script>
+<script src="~/js/ckeditor/config.js"></script>
+<form asp-action="Create" asp-controller="Product" method="post" id="ModelForm">
+    @Html.AntiForgeryToken()
+
+
+    <div class=" bs-example-modal-lg modal-dialog modal-lg" tabindex="-1" style="margin-left:50px">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                <h4 class="modal-title">@GlobalRes.Products</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-6">
+                        <input asp-for="Id" hidden />
+                        <input asp-for="Image1" hidden />
+                        <input asp-for="Image2" hidden />
+                        <input asp-for="Image3" hidden />
+                        <input asp-for="Image4" hidden />
+                        <input asp-for="Image5" hidden />
+
+                        <label asp-for="TitleAr" class="control-label"></label>
+                        <textarea asp-for="TitleAr" class="form-control"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="TitleEn" class="control-label"></label>
+                        <textarea asp-for="TitleEn" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="DescAr" class="control-label"></label>
+                        <textarea asp-for="DescAr" class="form-control"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="DescEn" class="control-label"></label>
+                        <textarea asp-for="DescEn" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="DescAr2" class="control-label"></label>
+                        <textarea asp-for="DescAr2" class="form-control"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="DescEn2" class="control-label"></label>
+                        <textarea asp-for="DescEn2" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="demo-checkbox">
+                            <input type="checkbox" asp-for="IsMainPage" class="filled-in chk-col-info" />
+                            <label asp-for="IsMainPage" class="control-label"></label>
+                        </div>
+                        @*<label asp-for="IsMainPage" class="control-label"></label>
+                            <input asp-for="IsMainPage" type="checkbox" class="form-control"/>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId"
+                                class="form-control " asp-items="@ViewBag.CategoryId">
+                        </select>
+                    </div>
+                    <div class="col-6 ">
+                        <label asp-for="Image1" class="control-label"></label>
+
+                        <input type="file" name="Image1" id="Image1" />
+                        <br />
+
+                        @if (!string.IsNullOrEmpty(Model.Image1))
+                        {
+                            <img style="width: 200px;height: 100px;" src="~/@(Model.Image1)">
+                            <a target="_blank" class="fa fa-download" href="~/@(Model.Image1)"></a>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 ">
+                        <label asp-for="Image2" class="control-label"></label>
+
+                        <input type="file" name="Image2" id="Image2" />
+                        <br />
+
+                        @if (!string.IsNullOrEmpty(Model.Image2))
+                        {
+                            <img style="width: 200px;height: 100px;" src="~/@(Model.Image2)">
+                            <a target="_blank" class="fa fa-download" href="~/@(Model.Image2)"></a>
+                        }
+                    </div>
+                    <div class="col-6 ">
+                        <label asp-for="Image3" class="control-label"></label>
+
+                        <input type="file" name="Image3" id="Image3" />
+                        <br />
+
+                        @if (!string.IsNullOrEmpty(Model.Image3))
+                        {
+                            <img style="width: 200px;height: 100px;" src="~/@(Model.Image3)">
+                            <a target="_blank" class="fa fa-download" href="~/@(Model.Image3)"></a>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 ">
+                        <label asp-for="Image4" class="control-label"></label>
+
+                        <input type="file" name="Image4" id="Image4" />
+                        <br />
+
+                        @if (!string.IsNullOrEmpty(Model.Image4))
+                        {
+                            <img style="width: 200px;height: 100px;" src="~/@(Model.Image4)">
+                            <a target="_blank" class="fa fa-download" href="~/@(Model.Image4)"></a>
+                        }
+                    </div>
+                    <div class="col-6 ">
+                        <label asp-for="Image5" class="control-label"></label>
+
+                        <input type="file" name="Image5" id="Image5" />
+                        <br />
+
+                        @if (!string.IsNullOrEmpty(Model.Image5))
+                        {
+                            <img style="width: 200px;height: 100px;" src="~/@(Model.Image5)">
+                            <a target="_blank" class="fa fa-download" href="~/@(Model.Image5)"></a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">@GlobalRes.btnCancel</button>
+                <button type="button" class="btn btn-primary " onclick="Save()">@GlobalRes.btnSave</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</form>
+
+<script type="text/javascript">
+    CKEDITOR.replace('DescAr');
+    CKEDITOR.replace('DescEn');
+    CKEDITOR.replace('DescAr2');
+    CKEDITOR.replace('DescEn2');
+    CKEDITOR.replace('TitleAr');
+    CKEDITOR.replace('TitleEn');
+</script>

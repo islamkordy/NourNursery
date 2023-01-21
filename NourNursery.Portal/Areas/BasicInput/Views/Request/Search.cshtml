@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<Models.ViewModel.BasicInput.ContactUsVm>
+@{
+    int str = 1;
+}
+<div class="panel">
+        <table id="example5" class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>@BasicInputRes.Name</th>
+                    <th>@BasicInputRes.Phone</th>
+                    <th>@BasicInputRes.Email</th>
+                    <th>@BasicInputRes.Description</th>
+                    <th>@GlobalRes.Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.ContactPhone</td>
+                        <td>@item.ContactEmail</td>
+                        <td>@item.ContactDescription </td>
+
+                        <td>
+                            <input type="button" id="btnDelete" onclick="Delete(@item.Id)" value="@GlobalRes.btnDelete" />
+                        </td>
+                        
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+    </div>
+<script type="text/javascript">
+        $(function () {
+            $('#example5').DataTable({
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [0, 1, 2, 3] },
+                    { "bSearchable": false, "aTargets": [0, 1, 2, 3] }
+                ]
+            });
+        });
+
+    </script>
+
+

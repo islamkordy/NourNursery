@@ -1,0 +1,338 @@
+﻿@model Models.ViewModel.BasicInput.FrontVm
+@using Portal.Resource.BasicInput
+@using Portal.Resource.GlobalRes
+@using Library.Helpers.Utilities;
+@using Microsoft.AspNetCore.Localization;
+@using Microsoft.AspNetCore.Http.Extensions;
+@{
+    int count = 0;
+}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nour Nursery</title>
+    <link rel="stylesheet" href="~/Front/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="~/Front/css/all.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/Front/css/sass/style.css">
+</head>
+
+<body>
+    <!-- start nav -->
+    <nav>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <img src="~/@(Model.Logo)" alt="">
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li><a href="~/">HOME</a></li>
+                        <li><a href="">WHO WE ARE</a></li>
+                        <li><a href="~/Home/Product">PROJECTS</a></li>
+                        <li><a href="">PRODUCTS</a></li>
+                        <li><a href="">CONTACT US</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end nav -->
+    <div class="responsive-nav">
+        <div class="i-logo">
+            <img src="~/@(Model.Logo)" alt="">
+        </div>
+        <div class="bar">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <!-- start header -->
+
+    <header>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model.Sliders1)
+                {
+                    <div class="swiper-slide">
+                        <div class="img-h">
+                            <img class="img-fluid" src="~/@(item.Image)" alt="">
+                            <div class="head-info">
+                                @(ResourcesReader.IsArabic? Html.Raw(item.DescAr): Html.Raw(item.DescEn))
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- Swiper-->
+    </header>
+    <!-- end header -->
+    <!-- start welcome -->
+    <div class="welcome">
+        <div class="container">
+            <div class="w-title">
+                @Html.Raw(Model.Title)
+            </div>
+            <div class="t-paragraph">
+                @Html.Raw(Model.Description)
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="wel_info">
+                        <h6>@BasicInputRes.VALUE</h6>
+                        @Html.Raw(Model.Value)
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="wel_info">
+                        <h6>@BasicInputRes.Vision</h6>
+                        @Html.Raw(Model.Vision)
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="wel_info">
+                        <h6>@BasicInputRes.Mission</h6>
+                        @Html.Raw(Model.Mission)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end welcome -->
+    <!-- start to-slider -->
+    <div class="to-slider">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model.Sliders2)
+                {
+                    <div class="swiper-slide">
+                        <div class="img-h">
+                            <img class="img-fluid" src="~/@(item.Image)" alt="">
+                        </div>
+                        <div class="to-info">
+                            @(ResourcesReader.IsArabic? Html.Raw(item.DescAr): Html.Raw(item.DescEn))
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- start to-slider -->
+    <!-- start grid item -->
+    <div class="item-grid">
+        @if (Model.Products.Count() > 0)
+        {
+            <div class="item-g-l ti">
+                <img src="~/@(Model.Products.ElementAt(0).Image1)" alt="">
+                <div class="po-lay">
+                    <div class="po-lay-text">
+                        @(ResourcesReader.IsArabic? Html.Raw(Model.Products.ElementAt(0).TitleAr): Html.Raw(Model.Products.ElementAt(0).TitleEn))
+                        @*<h3> don't think about work in your  <span>bedroom </span></h3>
+                        <h3>or relaxation area.</h3>*@
+                    </div>
+                    <h6>@(ResourcesReader.IsArabic? Model.Products.ElementAt(0).Category.NameAr: Model.Products.ElementAt(0).Category.NameEn)</h6>
+                </div>
+            </div>
+        }
+
+    <div class="item-g-r">
+        <div class="igr-top">
+            @if (Model.Products.Count() > 1)
+            {
+                for (int i = 1; i < Model.Products.Count(); i++)
+                {
+                    <div class="igr-top1 ti">
+                        <img src="~/@(Model.Products.ElementAt(i).Image1)" alt="">
+                        <div class="po-lay">
+                            <span></span>
+                            <h6>@(ResourcesReader.IsArabic? Model.Products.ElementAt(i).Category.NameAr: Model.Products.ElementAt(i).Category.NameEn)</h6>
+                        </div>
+
+                    </div>
+                    @if (i == 2)
+                        break;
+                }
+            }
+        </div>
+        @if (Model.Products.Count() > 3)
+        {
+            <div class="igr-buttom ti">
+                <img src="~/@(Model.Products.ElementAt(3).Image1)" alt="">
+                <div class="po-lay">
+                    <div class="po-lay-text">
+                        @(ResourcesReader.IsArabic? Html.Raw(Model.Products.ElementAt(3).TitleAr): Html.Raw(Model.Products.ElementAt(3).TitleEn))
+                    </div>
+                    <h6>@(ResourcesReader.IsArabic? Model.Products.ElementAt(3).Category.NameAr: Model.Products.ElementAt(3).Category.NameEn)</h6>
+                </div>
+            </div>
+        }
+
+
+    </div>
+    </div>
+    <!-- end grid item -->
+    <!-- slider projects -->
+    <div class="slide-projects">
+        <!-- Swiper -->
+        <div class="swiper mySwiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="item-pro">
+                        <img class="img-fluid" src="~/@(Model.VisionImage)" alt="">
+                        <div class="lay-pro">
+                            <h4>@BasicInputRes.PROJECTS</h4>
+                            <div class="lp-text">
+                                @Html.Raw(Model.ProjectTitle)
+                                <a href="">
+                                    view
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="item-pro">
+                        <img class="img-fluid" src="~/@(Model.VisionImage)" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- slider projects -->
+    <!-- item gal-->
+    <div class="item_gal">
+        @foreach (var item in Model.MainProducts)
+        {
+        <div class="gal">
+            <img class="img-fluid" src="~/@(item.Image1)" alt="">
+            @(ResourcesReader.IsArabic? Html.Raw(item.TitleAr): Html.Raw(item.TitleEn))
+        </div>
+        }
+    </div>
+    <!-- item gal-->
+    <!-- contact us -->
+    <div class="contact-us">
+        <div class="title">
+            <h6>@BasicInputRes.ContactUs</h6>
+        </div>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="form-contact">
+                        <div class="input-form">
+                            <input type="text" placeholder="NAME">
+                        </div>
+                        <div class="input-form">
+                            <input type="text" placeholder="MOBILE">
+                        </div>
+                        <div class="input-form">
+
+                            <textarea placeholder="MESSAGE" name="" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="sub-m">
+                            <button>SEND</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="contact-info">
+                        @Html.Raw(Model.Contact)
+                        <ul>
+                            <li><a href="@Model.Instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="@Model.Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="@Model.FaceBook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="@Model.Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="@Model.Youtube"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact us -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="footer-logo">
+                        <img class="img-fluid" src="~/@(Model.Logo)" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+    <!-- copy -->
+    <div class="copy">
+        <h4>all rights reserved TO Islam Kordy @DateTime.Now.Year</h4>
+    </div>
+    <!-- copy -->
+
+
+    <script src="~/Front/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Front/js/poper.min.js"></script>
+    <script src="~/Front/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="~/Front/css/all.js"></script>
+    <script src="~/Front/js/main.js"></script>
+
+</body>
+
+</html>

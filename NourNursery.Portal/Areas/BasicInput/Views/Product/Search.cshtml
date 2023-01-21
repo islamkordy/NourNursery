@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<Models.ViewModel.BasicInput.ProductVm>
+@{
+    int str = 1;
+}
+<div class="panel">
+    <table id="example5" class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>@BasicInputRes.TitleAr</th>
+                <th>@BasicInputRes.TitleEn</th>
+                <th>@BasicInputRes.DescAr</th>
+                <th>@BasicInputRes.DescEn</th>
+                <th>@BasicInputRes.CategoryId</th>
+                @*<th>@BasicInputRes.DescAr</th>
+                    <th>@BasicInputRes.DescEn</th>*@
+                <th>@GlobalRes.Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.Raw(item.TitleAr)</td>
+                    <td>@Html.Raw(item.TitleEn)</td>
+                    <td>@Html.Raw(item.DescAr)</td>
+                    <td>@Html.Raw(item.DescEn)</td>
+                    <td>@item.CategoryName</td>
+                    @*<td>@item.DescAr</td>
+                        <td>@item.DescEn</td>*@
+                    <td>
+                        <div class="btn-group display-inline pull-right text-align-left hidden-tablet">
+                            <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-cog fa-lg"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-xs pull-right">
+                                <li>
+                                    <input type="button" id="btnUpdate" onclick="Edit(@item.Id)" value="@GlobalRes.btnEdit" />
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <input type="button" id="btnDelete" onclick="Delete(@item.Id)" value="@GlobalRes.btnDelete" />
+                                </li>
+                                <li class="divider"></li>
+                                <li class="text-align-center">
+                                    <a href="javascript:void(0);">@GlobalRes.btnCancel</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#example5').DataTable({
+
+        });
+    });
+
+</script>
+
+

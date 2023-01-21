@@ -1,0 +1,44 @@
+.photos{
+    padding-top: 40px;
+    .mySwiper2{
+        img{
+            height: 450px;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .mySwiper8{
+        margin-bottom: 40px;
+        padding-top:20px;
+        img{
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            cursor: pointer;
+        }
+    }
+}
+.info{
+    h4{
+        font-weight: bold;
+        margin-bottom:20px
+    }
+    p{
+        font-weight: bold;
+
+    }
+}
+.img-pro{
+    margin-top: 40px;
+    margin-bottom:40px;
+}
+.img-pro-img{
+    img{
+        width: 100%;
+    }
+}
+.img-pro-text{
+    p{
+        font-weight: bold;
+    }
+}

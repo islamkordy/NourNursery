@@ -1,0 +1,179 @@
+﻿@model Models.ViewModel.Administration.LoginModelVm
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="~/Front/images/logofooter.png">
+        <title>تسجيل الدخول </title>
+
+        <!-- Vendors Style-->
+        <link href="~/css/vendors_css.css" rel="stylesheet" />
+        <!-- Style-->
+        <link href="~/css/style.css" rel="stylesheet" />
+        <link href="~/css/style_rtl.css" rel="stylesheet" />
+        <link href="~/css/skin_color.css" rel="stylesheet" />
+    </head>
+
+    <body class="hold-transition theme-primary bg-img bglogin rtl" style="overflow:hidden;">
+
+        <div class="container h-p100">
+            <div class="row align-items-center justify-content-md-center h-p100 mt-20 ">
+
+                <div class="col-12">
+                    <div class="row justify-content-center no-gutters align-items-center">
+                        <div class="col-lg-4 col-md-5 col-12">
+                            <div class="bg-white rounded20 shadow-lg loginbox">
+                                <div class="content-top-agile p-20 pb-0">
+                                    <img src="~/Front/images/logofooter.png" class="imgcss" />
+                                    <h2 class="text-primary classhealine">تسجيل الدخول</h2>
+                                </div>
+                                <div class="p-40 pt-10">
+                                    <form action="" method="post">
+
+                                        <div class="loginboxinternal">
+
+                                            <div class="form-group ">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text bg-transparent"><i class="ti-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control pl-15 bg-transparent" placeholder="اسم المستخدم" name="username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group mboder pt-1">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text  bg-transparent"><i class="ti-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control pl-15 bg-transparent" placeholder="كلمة المرور" name="password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12 text-center mb-20">
+                                            <button type="submit" class="btn w-100 mt-10 btnbackg">تسجيل الدخول</button>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <!--<div class="col-6">
+                                            <div class="checkbox">
+                                                <input type="checkbox" id="basic_checkbox_1">
+                                                <label for="basic_checkbox_1">Remember Me</label>
+                                            </div>
+                                        </div>-->
+                                            <!-- /.col -->
+                                            <div class="col-6">
+                                                <div class="fog-pwd text-right">
+                                                  <a href="javascript:void(0)" class="hover-warning"><i class="ion ion-locked"></i> نسيت كلمة المرور ؟</a><br>
+                                                </div>
+                                            </div>
+                                            <!-- /.col -->
+                                            <!-- /.col -->
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-8 col-md-7">
+                            <div class="loginbgdiv">
+                                <img src="~/Front/images/interface.jpg" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mt-30">
+
+                        <div class="col-6">
+                            <p class="text-white">
+                                جميع الحقوق محفوظة لأسلام كردى © @DateTime.Now.Year
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <p class="gap-items-2 mb-20 text-left">
+                                <a class="btn btn-social-icon btn-outline-light rounded-circle " href="#"><i class="fa fa-home"></i></a>
+
+                                <a class="btn btn-social-icon btn-outline-light rounded-circle " href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="btn btn-social-icon btn-outline-light rounded-circle " href="#"><i class="fa fa-twitter"></i></a>
+                                <a class="btn btn-social-icon  btn-outline-light rounded-circle " href="#"><i class="fa fa-envelope"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Vendor JS -->
+        <script src="~/js/vendors.min.js"></script>
+        <script src="~/assets/icons/feather-icons/feather.min.js"></script>
+    </body>
+
+</html>
+
+
+@*<script type="text/javascript">
+        $(function () {
+
+            GetBranch();
+
+            $("#Company").change(function () {
+                var selectedType = $('#Company').val();
+                alert(selectedType)
+                $.ajax({
+                    type: "POST",
+                    data: {"CompanyId": selectedType },
+                    url: "@Url.Action("../Account/getCompanyBranch")",
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#Branch").empty();
+                        $.each(data, function () {
+                            $("<option />", {
+                                val: this.Value,
+                                text: this.Text
+                            }).appendTo("#Branch");
+                        });
+                    }
+                });
+
+            });
+
+        })
+
+
+    function GetBranch() {
+
+                var selectedType = $('#Company').val();
+                alert(selectedType)
+                $.ajax({
+                    type: "POST",
+                    data: {"CompanyId": selectedType },
+                    url: "@Url.Action("../Account/getCompanyBranch")",
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#Branch").empty();
+                        $.each(data, function () {
+                            $("<option />", {
+                                val: this.Value,
+                                text: this.Text
+                            }).appendTo("#Branch");
+                        });
+                    }
+                });
+
+    }
+</script>*@

@@ -1,0 +1,189 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>568f2f1e-0bd2-46ba-aa0c-71a55d31ebac</UserSecretsId>
+    <AssemblyName>NourNursery.Portal</AssemblyName>
+    <RootNamespace>NourNursery.Portal</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Index - Copy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.4" />
+    <PackageReference Include="NetCore.AutoRegisterDi" Version="2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.Abstracts\Domain.Abstracts.csproj" />
+    <ProjectReference Include="..\Domain.Entities\Domain.Entities.csproj" />
+    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj" />
+    <ProjectReference Include="..\Models.ViewModel\Models.ViewModel.csproj" />
+    <ProjectReference Include="..\Portal.Resource\Portal.Resource.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\icons\cryptocoins-master\cryptocoins.woff2" />
+    <None Include="wwwroot\assets\icons\feather-icons\feather.min.js" />
+    <None Include="wwwroot\assets\icons\glyphicons\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\icons\glyphicons\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\assets\icons\iconsmind\icomoonca27.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-arrows-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-basic-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-basic-elaboration-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-ecommerce-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-music-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-software-10.svg" />
+    <None Include="wwwroot\assets\icons\linea-icons\fonts\linea-weather-10.svg" />
+    <None Include="wwwroot\assets\icons\themify-icons\fonts\themify9f24.svg" />
+    <None Include="wwwroot\assets\vendor_components\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <None Include="wwwroot\assets\vendor_components\bootstrap-daterangepicker\daterangepicker.js" />
+    <None Include="wwwroot\assets\vendor_components\ckeditor\ckeditor.js" />
+    <None Include="wwwroot\assets\vendor_components\datatable\datatables.min.js" />
+    <None Include="wwwroot\assets\vendor_components\gridstack\gridstack.jQueryUI.js" />
+    <None Include="wwwroot\assets\vendor_components\gridstack\gridstack.js" />
+    <None Include="wwwroot\assets\vendor_components\gridstack\lodash.js" />
+    <None Include="wwwroot\assets\vendor_components\jquery-knob\js\jquery.knob.js" />
+    <None Include="wwwroot\assets\vendor_components\jquery-steps-master\build\jquery.steps.js" />
+    <None Include="wwwroot\assets\vendor_components\jquery-ui\jquery-ui.js" />
+    <None Include="wwwroot\assets\vendor_components\jquery-ui\jquery-ui.min.js" />
+    <None Include="wwwroot\assets\vendor_components\jquery-validation-1.17.0\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\assets\vendor_components\PACE\pace.min.js" />
+    <None Include="wwwroot\assets\vendor_components\perfect-scrollbar-master\perfect-scrollbar.jquery.min.js" />
+    <None Include="wwwroot\assets\vendor_components\prism\prism.js" />
+    <None Include="wwwroot\assets\vendor_components\progressbar.js-master\dist\progressbar.js" />
+    <None Include="wwwroot\assets\vendor_components\select2\dist\js\select2.full.js" />
+    <None Include="wwwroot\assets\vendor_plugins\ace-builds-master\src-min-noconflict\ace.js" />
+    <None Include="wwwroot\assets\vendor_plugins\bootstrap-slider\bootstrap-slider.js" />
+    <None Include="wwwroot\assets\vendor_plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <None Include="wwwroot\assets\vendor_plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <None Include="wwwroot\assets\vendor_plugins\bootstrap-wysihtml5\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\vendor_plugins\bootstrap-wysihtml5\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\assets\vendor_plugins\iCheck\icheck.js" />
+    <None Include="wwwroot\assets\vendor_plugins\iCheck\icheck.min.js" />
+    <None Include="wwwroot\assets\vendor_plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <None Include="wwwroot\assets\vendor_plugins\input-mask\jquery.inputmask.extensions.js" />
+    <None Include="wwwroot\assets\vendor_plugins\input-mask\jquery.inputmask.js" />
+    <None Include="wwwroot\assets\vendor_plugins\JqueryPrintArea\demo\jquery.PrintArea.js" />
+    <None Include="wwwroot\assets\vendor_plugins\timepicker\bootstrap-timepicker.min.js" />
+    <None Include="wwwroot\assets\vendor_plugins\weather-icons\WeatherIcon.js" />
+    <None Include="wwwroot\Front\css\all.js" />
+    <None Include="wwwroot\Front\css\sass\component\_about.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_add-post.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_ar.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_chat.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_checkout.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_contact-us.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_font.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_home.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_inner-post.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_owl-carousel.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_programs.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_responsive.scss" />
+    <None Include="wwwroot\Front\css\sass\component\_services.scss" />
+    <None Include="wwwroot\Front\css\sass\style.css.map" />
+    <None Include="wwwroot\Front\css\sass\style.scss" />
+    <None Include="wwwroot\Front\font\MyriadPro-Bold.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-BoldCond.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-BoldCondIt.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-BoldIt.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-Cond.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-CondIt.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-Light.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-Regular.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-Semibold.woff2" />
+    <None Include="wwwroot\Front\font\MyriadPro-SemiboldIt.woff2" />
+    <None Include="wwwroot\Front\js\bootstrap.min.js" />
+    <None Include="wwwroot\Front\js\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\Front\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\Front\js\main.js" />
+    <None Include="wwwroot\Front\js\owl.carousel.js" />
+    <None Include="wwwroot\Front\js\poper.min.js" />
+    <None Include="wwwroot\Front\js\price_range_script.js" />
+    <None Include="wwwroot\js\demo.js" />
+    <None Include="wwwroot\js\pages\advanced-form-element.js" />
+    <None Include="wwwroot\js\pages\app-chat.js" />
+    <None Include="wwwroot\js\pages\app-contact.js" />
+    <None Include="wwwroot\js\pages\app-ticket.js" />
+    <None Include="wwwroot\js\pages\c3-axis.js" />
+    <None Include="wwwroot\js\pages\c3-bar-pie.js" />
+    <None Include="wwwroot\js\pages\c3-data.js" />
+    <None Include="wwwroot\js\pages\c3-line.js" />
+    <None Include="wwwroot\js\pages\c3-multi-xy-line.js" />
+    <None Include="wwwroot\js\pages\c3-stap-line.js" />
+    <None Include="wwwroot\js\pages\calendar.js" />
+    <None Include="wwwroot\js\pages\chart-widgets.js" />
+    <None Include="wwwroot\js\pages\chartjs-int.js" />
+    <None Include="wwwroot\js\pages\component-animations-css3.js" />
+    <None Include="wwwroot\js\pages\component-rating-init.js" />
+    <None Include="wwwroot\js\pages\coundown-timer.js" />
+    <None Include="wwwroot\js\pages\custom-scroll.js" />
+    <None Include="wwwroot\js\pages\dashboard.js" />
+    <None Include="wwwroot\js\pages\dashboard2.js" />
+    <None Include="wwwroot\js\pages\dashboard3.js" />
+    <None Include="wwwroot\js\pages\data-table.js" />
+    <None Include="wwwroot\js\pages\date-paginator.js" />
+    <None Include="wwwroot\js\pages\echart-bar.js" />
+    <None Include="wwwroot\js\pages\echart-line-charts.js" />
+    <None Include="wwwroot\js\pages\echart-pie-doghnut.js" />
+    <None Include="wwwroot\js\pages\ecommerce_details.js" />
+    <None Include="wwwroot\js\pages\editable-tables.js" />
+    <None Include="wwwroot\js\pages\editor.js" />
+    <None Include="wwwroot\js\pages\extra_taskboard.js" />
+    <None Include="wwwroot\js\pages\form-code-editor.js" />
+    <None Include="wwwroot\js\pages\form-compose.js" />
+    <None Include="wwwroot\js\pages\form-validation.js" />
+    <None Include="wwwroot\js\pages\form-x-editable.js" />
+    <None Include="wwwroot\js\pages\formatter.js" />
+    <None Include="wwwroot\js\pages\fullscreen.js" />
+    <None Include="wwwroot\js\pages\gallery.js" />
+    <None Include="wwwroot\js\pages\gridstackjs.js" />
+    <None Include="wwwroot\js\pages\icons.js" />
+    <None Include="wwwroot\js\pages\invoice.js" />
+    <None Include="wwwroot\js\pages\list.js" />
+    <None Include="wwwroot\js\pages\mailbox.js" />
+    <None Include="wwwroot\js\pages\media.js" />
+    <None Include="wwwroot\js\pages\nestable.js" />
+    <None Include="wwwroot\js\pages\notification.js" />
+    <None Include="wwwroot\js\pages\pace.js" />
+    <None Include="wwwroot\js\pages\peity.js" />
+    <None Include="wwwroot\js\pages\range-sliders.init.js" />
+    <None Include="wwwroot\js\pages\slider.js" />
+    <None Include="wwwroot\js\pages\statistic.js" />
+    <None Include="wwwroot\js\pages\steps.js" />
+    <None Include="wwwroot\js\pages\timeline.js" />
+    <None Include="wwwroot\js\pages\toastr.js" />
+    <None Include="wwwroot\js\pages\validation.js" />
+    <None Include="wwwroot\js\pages\weather.js" />
+    <None Include="wwwroot\js\pages\widget-blog.js" />
+    <None Include="wwwroot\js\pages\widget-chartist.js" />
+    <None Include="wwwroot\js\pages\widget-charts2.js" />
+    <None Include="wwwroot\js\pages\widget-flot-charts.js" />
+    <None Include="wwwroot\js\pages\widget-inline-charts.js" />
+    <None Include="wwwroot\js\pages\widget-morris-charts.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\template.js" />
+    <None Include="wwwroot\js\vendors.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+    <Folder Include="wwwroot\Content\css\" />
+    <Folder Include="wwwroot\Uploads\Logos\" />
+    <Folder Include="wwwroot\Uploads\Media\" />
+    <Folder Include="wwwroot\Uploads\Product\" />
+  </ItemGroup>
+
+</Project>

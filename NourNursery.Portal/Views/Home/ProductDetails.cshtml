@@ -1,0 +1,267 @@
+﻿@model Models.ViewModel.BasicInput.FrontVm
+@using Portal.Resource.BasicInput
+@using Portal.Resource.GlobalRes
+@using Library.Helpers.Utilities;
+@using Microsoft.AspNetCore.Localization;
+@using Microsoft.AspNetCore.Http.Extensions;
+@{
+    int count = 0;
+}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nour Nursery</title>
+    <link rel="stylesheet" href="~/Front/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="~/Front/css/all.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/Front/css/sass/style.css">
+</head>
+
+<body>
+    <!-- start nav -->
+    <nav>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <img src="~/@(Model.Logo)" alt="">
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li><a href="~/">HOME</a></li>
+                        <li><a href="">WHO WE ARE</a></li>
+                        <li><a href="~/Home/Product">PROJECTS</a></li>
+                        <li><a href="">PRODUCTS</a></li>
+                        <li><a href="">CONTACT US</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end nav -->
+    <div class="responsive-nav">
+        <div class="i-logo">
+            <img src="~/@(Model.Logo)" alt="">
+        </div>
+        <div class="bar">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <!-- start header -->
+
+    <header>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model.Sliders1)
+                {
+                    <div class="swiper-slide">
+                        <div class="img-h">
+                            <img class="img-fluid" src="~/@(item.Image)" alt="">
+                            <div class="head-info">
+                                @(ResourcesReader.IsArabic? Html.Raw(item.DescAr): Html.Raw(item.DescEn))
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- Swiper-->
+    </header>
+    <!-- end header -->
+    <!-- start photos -->
+    <div class="photos">
+        <div class="container">
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    @if (Model.ProductDetails.Image1 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image1)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image2 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image2)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image3 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image3)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image4 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image4)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image5 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image5)" alt="">
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+            <div thumbsSlider="" class="swiper mySwiper8" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;">
+                <div class="swiper-wrapper">
+                    @if (Model.ProductDetails.Image1 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image1)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image2 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image2)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image3 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image3)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image4 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image4)" alt="">
+                        </div>
+                    }
+                    @if (Model.ProductDetails.Image5 != null)
+                    {
+                        <div class="swiper-slide">
+
+                            <img src="~/@(Model.ProductDetails.Image5)" alt="">
+                        </div>
+                    }
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <!-- Swiper JS -->
+    </div>
+    <!-- end photos -->
+    <!--.info  -->
+    <div class="info">
+        <div class="container">
+            @(ResourcesReader.IsArabic? Html.Raw(Model.ProductDetails.DescAr):Html.Raw(Model.ProductDetails.DescEn))
+            @*<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>*@
+        </div>
+    </div>
+    <!--.info  -->
+    <!-- img-pro -->
+    <div class="img-pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-8">
+                    <div class="img-pro-img">
+                        <img class="img-fluid" src="~/@(Model.ProductDetails.Image1)" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="img-pro-text">
+                        @(ResourcesReader.IsArabic? Html.Raw(Model.ProductDetails.DescAr2) :Html.Raw(Model.ProductDetails.DescEn2))
+                        @*<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- img-pro -->
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="footer-logo">
+                        <img class="img-fluid" src="~/@(Model.Logo)" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <div class="list-foot">
+                        <ul>
+                            <li><a href="">Lorem ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum dt</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href="">Lorem  dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                            <li><a href=""> ipsum dolor sit</a></li>
+                            <li><a href="">Lorem ipsum  sit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+    <!-- copy -->
+    <div class="copy">
+        <h4>all rights reserved TO Islam Kordy @DateTime.Now.Year</h4>
+    </div>
+    <!-- copy -->
+
+
+    <script src="~/Front/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Front/js/poper.min.js"></script>
+    <script src="~/Front/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="~/Front/css/all.js"></script>
+    <script src="~/Front/js/main.js"></script>
+
+</body>
+
+</html>

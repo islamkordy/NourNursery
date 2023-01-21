@@ -1,0 +1,23 @@
+﻿
+@model Models.ViewModel.BasicInput.CategoryVm
+
+
+<div class="modal-dialog" style="width: 900px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> @GlobalRes.btnDelete </h4>
+        </div>
+        <div class="modal-body" style="width :900px;">
+
+            <h4 class="modal-title"> @GlobalRes.MessageDeleteDate ? </h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="button" value="@GlobalRes.btnDelete" class="btn yellow Saveee" onclick="DeleteRow(@Model.Id)" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@GlobalRes.btnCancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

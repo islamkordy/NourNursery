@@ -1,0 +1,280 @@
+﻿
+@model Models.ViewModel.BasicInput.AboutVm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = GlobalRes.AboutCompany;
+}
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<script src="~/js/ckeditor/build-config.js"></script>
+<script src="~/js/ckeditor/styles.js"></script>
+<script src="~/js/ckeditor/config.js"></script>
+<form asp-action="Create" asp-controller="About" method="post" id="ModelForm">
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <!-- Basic Forms -->
+            <div class="box">
+
+                <div class="box-header with-border">
+                    <h4 class="box-title">
+                        <i class="ti-agenda pl-1"></i>
+                        @GlobalRes.AboutCompany
+                    </h4>
+
+                    <ul class="box-controls pull-right">
+                        <li><a class="box-btn-close" href="#"></a></li>
+                        <li><a class="box-btn-slide" href="#"></a></li>
+                        <li><a class="box-btn-fullscreen" href="#"></a></li>
+                    </ul>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <label asp-for="AboutAr" class="control-label"></label>
+                            <textarea asp-for="AboutAr" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="AboutEn" class="control-label"></label>
+                            <textarea asp-for="AboutEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <input asp-for="Id" hidden />
+                            <input asp-for="Logo" hidden />
+                            <input asp-for="Logo2" hidden />
+                            <input asp-for="VisionImage" hidden />
+                            <label asp-for="TitleAr" class="control-label"></label>
+                            <textarea asp-for="TitleAr" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="TitleEn" class="control-label"></label>
+                            <textarea asp-for="TitleEn" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="DescAr" class="control-label"></label>
+                                    <textarea asp-for="DescAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="DescEn" class="control-label"></label>
+                                    <textarea asp-for="DescEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="ValueAr" class="control-label"></label>
+                                    <textarea asp-for="ValueAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="ValueEn" class="control-label"></label>
+                                    <textarea asp-for="ValueEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="ProjectTitleAr" class="control-label"></label>
+                                    <textarea asp-for="ProjectTitleAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="ProjectTitleEn" class="control-label"></label>
+                                    <textarea asp-for="ProjectTitleEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="VisionAr" class="control-label"></label>
+                                    <textarea asp-for="VisionAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="VisionEn" class="control-label"></label>
+                                    <textarea asp-for="VisionEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="MissionAr" class="control-label"></label>
+                                    <textarea asp-for="MissionAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="MissionEn" class="control-label"></label>
+                                    <textarea asp-for="MissionEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="ContactAr" class="control-label"></label>
+                                    <textarea asp-for="ContactAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="ContactEn" class="control-label"></label>
+                                    <textarea asp-for="ContactEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="AddressAr" class="control-label"></label>
+                                    <textarea asp-for="AddressAr" class="form-control"></textarea>
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="AddressEn" class="control-label"></label>
+                                    <textarea asp-for="AddressEn" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="Phone" class="control-label"></label>
+                                    <input asp-for="Phone" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="Mobile" class="control-label"></label>
+                                    <input asp-for="Mobile" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="FaceBook" class="control-label"></label>
+                                    <input asp-for="FaceBook" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="Twitter" class="control-label"></label>
+                                    <input asp-for="Twitter" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="Instagram" class="control-label"></label>
+                                    <input asp-for="Instagram" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <label asp-for="Linkedin" class="control-label"></label>
+                                    <input asp-for="Linkedin" class="form-control" />
+                                </div>
+                                <div class="col-6">
+                                    <label asp-for="Youtube" class="control-label"></label>
+                                    <input asp-for="Youtube" class="form-control" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <label asp-for="Logo" class="control-label"></label>
+
+                                    <input type="file" name="Logo" id="Logo" />
+                                    <br />
+
+                                    @if (!string.IsNullOrEmpty(Model.Logo))
+                                    {
+                                        <img style="width: 200px;height: 100px;" src="~/@(Model.Logo)">
+                                        <a class="fa fa-download" href="~/BasicInput/About/DownloadAttachment?FileName=@Model.Logo"></a>
+                                    }
+                                </div>
+                                <div class="col-6 ">
+                                    <label asp-for="Logo2" class="control-label"></label>
+
+                                    <input type="file" name="Logo2" id="Logo2" />
+                                    <br />
+
+                                    @if (!string.IsNullOrEmpty(Model.Logo2))
+                                    {
+                                        <img style="width: 200px;height: 100px;" src="~/@(Model.Logo2)">
+                                        <a class="fa fa-download" href="~/BasicInput/About/DownloadAttachment?FileName=@Model.Logo2"></a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <label asp-for="VisionImage" class="control-label"></label>
+
+                                    <input type="file" name="VisionImage" id="VisionImage" />
+                                    <br />
+
+                                    @if (!string.IsNullOrEmpty(Model.VisionImage))
+                                    {
+                                        <img style="width: 200px;height: 100px;" src="~/@(Model.VisionImage)">
+                                        <a class="fa fa-download" href="~/BasicInput/About/DownloadAttachment?FileName=@Model.VisionImage"></a>
+                                    }
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <div class="text-left">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">@GlobalRes.btnCancel</button>
+                                <button type="button" class="btn btn-primary " onclick="Save()">@GlobalRes.btnSave</button>
+                            </div>
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+</form>
+
+
+
+<div class="modal fade" id="myModalAddEdit" role="dialog"></div>
+<script>
+    $(document).ready(function () {
+        //AboutAr,AboutEn is a text area that i want to replace it with text editor
+
+
+    });
+</script>
+@section Scripts {
+
+    <script src="~/PageScript/BasicInput/manageAbout.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('ProjectTitleAr');
+        CKEDITOR.replace('ProjectTitleEn');
+        CKEDITOR.replace('ContactEn');
+        CKEDITOR.replace('ContactAr');
+        CKEDITOR.replace('MissionEn');
+        CKEDITOR.replace('MissionAr');
+        CKEDITOR.replace('VisionAr');
+        CKEDITOR.replace('VisionEn');
+        CKEDITOR.replace('ValueEn');
+        CKEDITOR.replace('ValueAr');
+        CKEDITOR.replace('TitleAr');
+        CKEDITOR.replace('TitleEn');
+        CKEDITOR.replace('DescAr');
+        CKEDITOR.replace('DescEn');
+        CKEDITOR.replace('AddressAr');
+        CKEDITOR.replace('AddressEn');
+        $(document).ready(function () {
+            manageAbout.init();
+
+        })
+
+
+
+    </script>
+
+
+}
+
