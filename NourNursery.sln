@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portal.Resource", "Portal.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Entities", "Domain.Entities\Domain.Entities.csproj", "{9D4F1D65-3170-4198-A90B-5A3805F960A0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NourNursery.Portal", "HD.Portal\NourNursery.Portal.csproj", "{0065E049-7C10-4933-BD57-2805145CD137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NourNursery.Portal", "NourNursery.Portal\NourNursery.Portal.csproj", "{0065E049-7C10-4933-BD57-2805145CD137}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
