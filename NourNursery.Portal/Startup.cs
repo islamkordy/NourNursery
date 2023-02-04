@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Globalization;
 using AutoMapper;
 using Domain.Abstracts;
 using Domain.Abstracts.Administration;
@@ -9,7 +7,6 @@ using Domain.Services;
 using Domain.Services.Administration;
 using Domain.Services.Base;
 using Domain.Services.BasicInput;
-using NourNursery.Portal.CustomAttributes;
 using Library.Helpers.APIUtilities;
 using Library.Helpers.Repository;
 using Library.Helpers.UnitOfWork;
@@ -24,6 +21,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Models.ViewModel.Mapping;
+using NourNursery.Portal.CustomAttributes;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace NourNursery.Portal
 {
@@ -41,9 +41,9 @@ namespace NourNursery.Portal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<HDDbContext>(cfg =>
+            services.AddDbContext<NourNurseryContext>(cfg =>
             {
-                cfg.UseSqlServer(Configuration.GetConnectionString("ICityConnection"))
+                cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                    .UseLazyLoadingProxies();//false
             });
             services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -101,7 +101,7 @@ namespace NourNursery.Portal
 
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-            services.AddScoped<DbContext, HDDbContext>();
+            services.AddScoped<DbContext, NourNurseryContext>();
             services.AddSingleton<ISeedData, SeedData>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IActionResultResponseHandler, ActionResultResponseHandler>();

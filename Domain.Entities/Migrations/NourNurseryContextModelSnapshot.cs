@@ -4,16 +4,14 @@ using Domain.Entities.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Domain.Entities.Migrations
 {
-    [DbContext(typeof(HDDbContext))]
-    [Migration("20211122141254_UpdateAboutTbl2")]
-    partial class UpdateAboutTbl2
+    [DbContext(typeof(NourNurseryContext))]
+    partial class NourNurseryContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -338,7 +336,13 @@ namespace Domain.Entities.Migrations
                     b.Property<string>("DescAr")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DescAr2")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DescEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescEn2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image1")
@@ -357,6 +361,9 @@ namespace Domain.Entities.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsBlock")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMainPage")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifyDate")
@@ -486,7 +493,7 @@ namespace Domain.Entities.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2021, 11, 22, 16, 12, 53, 562, DateTimeKind.Local).AddTicks(9578),
+                            CreateDate = new DateTime(2023, 2, 4, 16, 46, 42, 755, DateTimeKind.Local).AddTicks(3082),
                             CreateUserId = 1,
                             IsBlock = false,
                             NameAr = "مدير النظام",

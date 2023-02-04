@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Domain.Entities.Migrations
 {
-    [DbContext(typeof(HDDbContext))]
-    [Migration("20211117193744_ProductTBL")]
-    partial class ProductTBL
+    [DbContext(typeof(NourNurseryContext))]
+    [Migration("20230204144645_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,12 @@ namespace Domain.Entities.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AddressEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactEn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDate")
@@ -73,6 +79,12 @@ namespace Domain.Entities.Migrations
                     b.Property<string>("Logo2")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MissionAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MissionEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Mobile")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,6 +97,12 @@ namespace Domain.Entities.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProjectTitleAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TitleAr")
                         .HasColumnType("nvarchar(max)");
 
@@ -94,7 +112,19 @@ namespace Domain.Entities.Migrations
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ValueAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValueEn")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Video")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VisionAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VisionEn")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VisionImage")
@@ -308,7 +338,13 @@ namespace Domain.Entities.Migrations
                     b.Property<string>("DescAr")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DescAr2")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DescEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescEn2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image1")
@@ -327,6 +363,9 @@ namespace Domain.Entities.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsBlock")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMainPage")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifyDate")
@@ -456,7 +495,7 @@ namespace Domain.Entities.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2021, 11, 17, 21, 37, 43, 263, DateTimeKind.Local).AddTicks(9692),
+                            CreateDate = new DateTime(2023, 2, 4, 16, 46, 42, 755, DateTimeKind.Local).AddTicks(3082),
                             CreateUserId = 1,
                             IsBlock = false,
                             NameAr = "مدير النظام",

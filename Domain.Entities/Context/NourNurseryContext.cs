@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Entities.Context
 {
-    public partial class HDDbContext : DbContext//IdentityDbContext
+    public partial class NourNurseryContext : DbContext//IdentityDbContext
     {
         private readonly ISeedData _dataInitializer;
 
-        public HDDbContext()
+        public NourNurseryContext()
         {
         }
 
-        public HDDbContext(DbContextOptions<HDDbContext> options, ISeedData dataInitializer)
+        public NourNurseryContext(DbContextOptions<NourNurseryContext> options, ISeedData dataInitializer)
             : base(options)
         {
             _dataInitializer = dataInitializer;

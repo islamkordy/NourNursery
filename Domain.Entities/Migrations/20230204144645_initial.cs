@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Domain.Entities.Migrations
 {
-    public partial class Intitial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,6 +64,16 @@ namespace Domain.Entities.Migrations
                     TitleEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DescAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DescEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValueAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ValueEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VisionAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VisionEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MissionAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MissionEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectTitleAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectTitleEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Mobile = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -97,6 +107,40 @@ namespace Domain.Entities.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_TBL_About_TBL_User_ModifyUserId",
+                        column: x => x.ModifyUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TBL_Category",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NameEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateUserId = table.Column<int>(type: "int", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifyUserId = table.Column<int>(type: "int", nullable: true),
+                    ModifyDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsBlock = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBL_Category", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TBL_Category_TBL_User_CreateUserId",
+                        column: x => x.CreateUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TBL_Category_TBL_User_ModifyUserId",
                         column: x => x.ModifyUserId,
                         principalSchema: "dbo",
                         principalTable: "TBL_User",
@@ -178,6 +222,94 @@ namespace Domain.Entities.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TBL_Sliders",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DescAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    CreateUserId = table.Column<int>(type: "int", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifyUserId = table.Column<int>(type: "int", nullable: true),
+                    ModifyDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsBlock = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBL_Sliders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TBL_Sliders_TBL_User_CreateUserId",
+                        column: x => x.CreateUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TBL_Sliders_TBL_User_ModifyUserId",
+                        column: x => x.ModifyUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TBL_Product",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TitleAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TitleEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescAr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescEn = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescAr2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DescEn2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image5 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    IsMainPage = table.Column<bool>(type: "bit", nullable: false),
+                    CreateUserId = table.Column<int>(type: "int", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifyUserId = table.Column<int>(type: "int", nullable: true),
+                    ModifyDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsBlock = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBL_Product", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TBL_Product_TBL_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_Category",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TBL_Product_TBL_User_CreateUserId",
+                        column: x => x.CreateUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TBL_Product_TBL_User_ModifyUserId",
+                        column: x => x.ModifyUserId,
+                        principalSchema: "dbo",
+                        principalTable: "TBL_User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TBL_FaqsDetails",
                 schema: "dbo",
                 columns: table => new
@@ -225,7 +357,7 @@ namespace Domain.Entities.Migrations
                 schema: "dbo",
                 table: "TBL_User",
                 columns: new[] { "Id", "CreateDate", "CreateUserId", "Email", "EmployeeId", "HousekeeperId", "IsBlock", "ModifyDate", "ModifyUserId", "NameAr", "NameEn", "Password", "Phone", "UserName", "UserType" },
-                values: new object[] { 1, new DateTime(2021, 11, 17, 13, 51, 29, 239, DateTimeKind.Local).AddTicks(9212), 1, null, null, null, false, null, null, "مدير النظام", "System admin", "11KThNU1zRI=", null, "admin", 1 });
+                values: new object[] { 1, new DateTime(2023, 2, 4, 16, 46, 42, 755, DateTimeKind.Local).AddTicks(3082), 1, null, null, null, false, null, null, "مدير النظام", "System admin", "11KThNU1zRI=", null, "admin", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TBL_About_CreateUserId",
@@ -237,6 +369,18 @@ namespace Domain.Entities.Migrations
                 name: "IX_TBL_About_ModifyUserId",
                 schema: "dbo",
                 table: "TBL_About",
+                column: "ModifyUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Category_CreateUserId",
+                schema: "dbo",
+                table: "TBL_Category",
+                column: "CreateUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Category_ModifyUserId",
+                schema: "dbo",
+                table: "TBL_Category",
                 column: "ModifyUserId");
 
             migrationBuilder.CreateIndex(
@@ -282,6 +426,36 @@ namespace Domain.Entities.Migrations
                 column: "ModifyUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TBL_Product_CategoryId",
+                schema: "dbo",
+                table: "TBL_Product",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Product_CreateUserId",
+                schema: "dbo",
+                table: "TBL_Product",
+                column: "CreateUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Product_ModifyUserId",
+                schema: "dbo",
+                table: "TBL_Product",
+                column: "ModifyUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Sliders_CreateUserId",
+                schema: "dbo",
+                table: "TBL_Sliders",
+                column: "CreateUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TBL_Sliders_ModifyUserId",
+                schema: "dbo",
+                table: "TBL_Sliders",
+                column: "ModifyUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TBL_User_CreateUserId",
                 schema: "dbo",
                 table: "TBL_User",
@@ -309,7 +483,19 @@ namespace Domain.Entities.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
+                name: "TBL_Product",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "TBL_Sliders",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
                 name: "TBL_Faqs",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "TBL_Category",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
